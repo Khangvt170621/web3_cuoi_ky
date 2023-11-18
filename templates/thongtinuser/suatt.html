@@ -1,0 +1,19 @@
+{%extends "base.html"%}
+{%block content%}
+    <div class="back_re">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="title">
+                   <h2>Sửa Thông Tin Khách Hàng - {{ khach_hang.Cccd }}</h2>
+                 </div>
+              </div>
+           </div>
+        </div>
+    </div>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Lưu Thay Đổi</button>
+    </form>
+{%endblock%}

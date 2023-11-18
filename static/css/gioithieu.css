@@ -1,0 +1,59 @@
+
+#nav .gioi-thieu  a{
+    color: #fff;
+    background-color: #EE0034;
+}
+
+
+.sub-content .gioithieu-img img{
+    width: 300px;
+    border: 2px solid #ee0034;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(238, 0, 52,0.6);
+    margin: 0px 120px;
+}
+
+.gioithieu-note p span{
+    color: #EE0034;
+}
+
+.sub-content .gioithieu-note .face{
+    background-color: #fff;
+    color: #4267b2;
+    border: 1px solid #4267b2;
+    padding: 12px;
+    border-radius: 999px;
+}
+
+.sub-content .gioithieu-note .face:hover{
+    background-color: #4267b2;
+    color: #fff;
+}
+
+.sub-content .gioithieu-note .insta{
+    background-color: #fff;
+    color: #4267b2;
+    border: 1px solid #4267b2;
+    padding: 12px;
+    border-radius: 999px;
+}
+
+.sub-content .gioithieu-note .insta:hover{
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    color: #fff;
+}
+
+.sub-content .gioithieu-note .mail{
+    background-color: #fff;
+    color: #ee0034;
+    border: 1px solid #ee0034;
+    padding: 12px 14px;
+    border-radius: 999px;
+}
+
+.sub-content .gioithieu-note .mail:hover{
+    color: #fff;
+    background-color: #EE0034;
+}

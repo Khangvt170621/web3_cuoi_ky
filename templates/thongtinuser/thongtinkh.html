@@ -1,0 +1,103 @@
+{%extends "base.html"%}
+{%block content%}
+
+    <div class="back_re">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-12">
+                 <div class="title">
+                   <h2>Thông tin khách hàng</h2>
+                 </div>
+              </div>
+           </div>
+        </div>
+    </div>
+    {% if khachhang %}
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0 rounded mx-auto d-block" src="../../static/images/images.png" style="width: 300px;" /></div>
+                <div class="col-md-6">
+                    <p><strong>Cccd:</strong> {{ khachhang.Cccd }}</p>
+                    <p><strong>Tên Khách Hàng:</strong> {{ khachhang.TenKhachHang }}</p>
+                    <p><strong>Email:</strong> {{ khachhang.email }}</p>
+                    <p><strong>Số Điện Thoại:</strong> {{ khachhang.Sdt }}</p>
+                    <p><strong>Địa Chỉ:</strong> {{ khachhang.DiaChi }}</p>
+                    <p><strong>Tình Trạng:</strong> {{ khachhang.Tinhtrang.Tinhtrang }}</p>
+                    <p><strong>User name:</strong> {{ khachhang.user.username}}</p>
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <a href="{% url 'suatt'%}?id={{khachhang.Cccd}}">
+                            <dev type="button" class="btn btn-primary btn-lg">Sửa thông tin</dev>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+     </section>
+{% else %}
+    <section class="vh-100" style="background-color: #eee;">
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+              <div class="card text-black" style="border-radius: 25px;">
+                <div class="card-body p-md-5">
+                  <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+            
+                    <form class="mx-1 mx-md-4" method="post" action="{% url 'thongtinkh' %}">
+                        {% csrf_token %}
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <div class="form-outline flex-fill mb-0">
+                            <label class="form-label" for="form3Example3c">Căn cước công dân</label>
+                            {{form.Cccd}}
+                          </div>
+                        </div>
+      
+                        <div class="d-flex flex-row align-items-center mb-4">
+                          <div class="form-outline flex-fill mb-0">
+                            <label class="form-label" for="form3Example4c">Tên khách hàng</label>
+                            {{form.TenKhachHang}}
+                          </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <div class="form-outline flex-fill mb-0">
+                              <label class="form-label" for="form3Example4c">Email address</label>
+                              {{form.email}}
+                            </div>
+                          </div>    
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <div class="form-outline flex-fill mb-0">
+                              <label class="form-label" for="form3Example4cd">Số điện thoại</label>
+                              {{form.Sdt}}
+                            </div>
+                          </div>   
+                        <div class="d-flex flex-row align-items-center mb-4">
+                            <div class="form-outline flex-fill mb-0">
+                              <label class="form-label" for="form3Example4cd">Địa Chỉ</label>
+                              {{form.DiaChi}}
+                            </div>
+                        </div> 
+                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                          <button type="submit" class="btn btn-primary btn-lg">Thêm Khách Hàng</button>
+                        </div>
+      
+                      </form>
+      
+                    </div>
+                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+      
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                        class="img-fluid" alt="Sample image">
+      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+{% endif %}
+{%endblock%}

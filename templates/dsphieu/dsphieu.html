@@ -1,0 +1,38 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="back_re">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="title">
+               <h2>Phiếu đặt phòng</h2>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+    {% if phieu %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Mã Khách Hàng</th>
+                    <th scope="col">Mã Phòng</th>
+                    <th scope="col">Ngày Nhận</th>
+                    <th scope="col">Ngày Trả</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for phieu_dat in phieu %}
+                    <tr>
+                        <td>{{ phieu_dat.MaKH.Cccd }}</td>
+                        <td>{{ phieu_dat.MaPhong}}</td>
+                        <td>{{ phieu_dat.NgayNhan }}</td>
+                        <td>{{ phieu_dat.NgayTra }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Không có phiếu đặt nào.</p>
+    {% endif %}
+{%endblock%}

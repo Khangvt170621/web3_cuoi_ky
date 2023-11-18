@@ -36,7 +36,7 @@ def phieu(request):
         # Lấy danh sách phiếu đặt của khách hàng đó
         phieu_dat_list = PhieuDatPhong.objects.filter(MaKH=ma_khach_hang)
 
-        return render(request, 'dsphieu/dsphieu.html', {'phieu': phieu_dat_list})
+        return render(request, 'datphong/dsphieu.html', {'phieu': phieu_dat_list})
     else:
         # Xử lý trường hợp user không có khách hàng liên kết
         return render(request, 'thongtinuser/thongtinkh.html')

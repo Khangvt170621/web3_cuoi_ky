@@ -1,23 +1,23 @@
 # views.py
-from django import forms
 from django.shortcuts import render, redirect
 from .forms import DatPhongForm
-from quanlyphong.models import Phong
 from .models import PhieuDatPhong
-from datetime import datetime, timedelta
 
 def dat_phong(request):
     ma_phong = request.GET.get('id')
-    print("5",ma_phong)
+    print(ma_phong)
     if not ma_phong:
-        return redirect('phieudat') 
+        # Xử lý trường hợp không có giá trị MaPhong được truyền vào
+        return redirect('index')  # Chẳng hạn, chuyển hướng về trang chủ
+
+    # Lấy thông tin người dùng đăng nhập và mã khách hàng
     if request.user.is_authenticated:
-        ma_khach_hang = request.user.khachhang.Cccd  # Giả sử bạn có trường Makhachhang trong model khách hàng của người dùng
+        ma_khach_hang = request.user.khachhang.Cccd
     else:
         # Xử lý trường hợp người dùng không đăng nhập
-        return redirect('dang_nhap')  # Chẳng hạn, chuyển hướng đến trang đăng nhập
+        return redirect('login')  # Chẳng hạn, chuyển hướng đến trang đăng nhập
 
-    if request.method == 'POST':
+    if request.method == 'post':
         form = DatPhongForm(request.POST)
         if form.is_valid():
             phieu_dat_phong = form.save(commit=False)
@@ -27,6 +27,7 @@ def dat_phong(request):
         form = DatPhongForm(initial={'MaPhong': ma_phong, 'MaKH': ma_khach_hang})
 
     return render(request, 'datphong/datphong.html', {'form': form})
+
 
 def phieu(request):
     user = request.user

@@ -31,7 +31,7 @@ def dat_phong(request):
         print('Ngoai POST:', ma_phong)
         form = DatPhongForm(initial={'MaPhong': ma_phong, 'MaKH': ma_khach_hang})
 
-    return render(request, 'datphong/datphong.html', {'form': form})
+    return render(request, 'datphong.html', {'form': form})
 
 
 def phieu(request):
@@ -42,7 +42,7 @@ def phieu(request):
         # Lấy danh sách phiếu đặt của khách hàng đó
         phieu_dat_list = PhieuDatPhong.objects.filter(MaKH=ma_khach_hang)
 
-        return render(request, 'datphong/dsphieu.html', {'phieu': phieu_dat_list})
+        return render(request, 'dsphieu.html', {'phieu': phieu_dat_list})
     else:
         # Xử lý trường hợp user không có khách hàng liên kết
-        return render(request, 'thongtinuser/thongtinkh.html')
+        return render(request, 'thongtinkh.html')

@@ -30,7 +30,7 @@ def them_khach_hang(request):
     else:
         form = KhachhangForm(instance=khachhang) if khachhang else KhachhangForm()
 
-    return render(request, 'thongtinuser/thongtinkh.html', {'form': form, 'khachhang': khachhang})
+    return render(request, 'thongtinkh.html', {'form': form, 'khachhang': khachhang})
 
 def sua_thong_tin_khach_hang(request):
     # khach_hang = get_object_or_404(Khachhang, Cccd=cccd)
@@ -45,4 +45,4 @@ def sua_thong_tin_khach_hang(request):
     else:
         form = SuaKhachHangForm(initial={'Cccd': makh})
 
-    return render(request, 'thongtinuser/suatt.html', {'form': form})
+    return render(request, 'suatt.html', {'form': form})
